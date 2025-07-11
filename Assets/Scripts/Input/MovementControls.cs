@@ -1,13 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem.OnScreen;
 
 [RequireComponent(typeof(CharacterController))]
 public class MovementControls : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _speed;
     [SerializeField] private Transform _cameraRotation;
-    //[SerializeField] private OnScreenStick _screenStick;
 
     private CharacterController _characterControler;
     private Vector2 _movementInput;
