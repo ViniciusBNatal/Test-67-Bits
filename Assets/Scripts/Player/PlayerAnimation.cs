@@ -12,7 +12,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         _animator = GetComponentInChildren<Animator>();
         GetComponent<MovementControls>().OnInputUpdate += HandleOnInputUpdate;
-        GetComponent<PunchBehaviour>().OnPunch += HandleOnPunch;
+        GetComponentInChildren<PunchBehaviour>().OnPunch += HandleOnPunch;
     }
 
     private void HandleOnInputUpdate(bool isMoving)
