@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -9,6 +10,8 @@ public class MovementControls : MonoBehaviour
     private CharacterController _characterControler;
     private Vector2 _movementInput;
 
+    public Action<bool> OnInputUpdate;
+
     private void Start()
     {
         _characterControler = GetComponent<CharacterController>();
@@ -18,6 +21,7 @@ public class MovementControls : MonoBehaviour
     private void HandleMovePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         _movementInput = obj.ReadValue<Vector2>();
+        OnInputUpdate?.Invoke(_movementInput != Vector2.zero);
     }
 
     private void FixedUpdate()
