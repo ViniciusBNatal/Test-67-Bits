@@ -279,8 +279,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2820983, y: 0.47555727, z: 0.2820983}
-  m_Center: {x: 0.14104915, y: 0.043435022, z: -0.0027387738}
+  m_Size: {x: 0.554999, y: 0.4755573, z: 0.2820983}
+  m_Center: {x: 0.0045988113, y: 0.04343503, z: -0.0027387796}
 --- !u!54 &1265557269920931283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -479,10 +479,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.04418044
-  m_Height: 0.17672177
+  m_Radius: 0.120464526
+  m_Height: 0.33817774
   m_Direction: 1
-  m_Center: {x: 0, y: -0.08836088, z: 0}
+  m_Center: {x: -0.004316764, y: 0.16422543, z: 0.00994304}
 --- !u!54 &2015454620423063363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -681,8 +681,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.14104915
-  m_Center: {x: 0, y: 0.14104915, z: 0}
+  m_Radius: 0.33708918
+  m_Center: {x: 0, y: 0.29786307, z: 0.003565766}
 --- !u!54 &1793869074381414586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -881,10 +881,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.000000023841858
-  m_Height: 0.00000011920929
+  m_Radius: 0.1
+  m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: -0.000000059604645, z: 0}
+  m_Center: {x: 0, y: 0.08, z: 0}
 --- !u!54 &8713977469184624948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -982,10 +982,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.044180296
-  m_Height: 0.17672119
+  m_Radius: 0.120464526
+  m_Height: 0.33817774
   m_Direction: 1
-  m_Center: {x: 0, y: -0.08836059, z: 0}
+  m_Center: {x: -0.004316764, y: 0.16422543, z: 0.00994304}
 --- !u!54 &2415586318377017992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1136,10 +1136,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.000000023841858
-  m_Height: 0.00000011920929
+  m_Radius: 0.1
+  m_Height: 0
   m_Direction: 1
-  m_Center: {x: 0, y: -0.000000059604645, z: 0}
+  m_Center: {x: 0, y: 0.08, z: 0}
 --- !u!54 &7264227548914210507
 Rigidbody:
   m_ObjectHideFlags: 0
