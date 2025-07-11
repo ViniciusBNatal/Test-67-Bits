@@ -6,6 +6,8 @@ public class MovementControls : MonoBehaviour
 {
     [SerializeField, Min(0f)] private float _speed;
     [SerializeField] private Transform _cameraRotation;
+    [SerializeField] private float _turnSpeed;
+    [SerializeField] private Transform _characterModel;
 
     private CharacterController _characterControler;
     private Vector2 _movementInput;
@@ -24,10 +26,21 @@ public class MovementControls : MonoBehaviour
         OnInputUpdate?.Invoke(_movementInput != Vector2.zero);
     }
 
-    private void FixedUpdate()
+    private void UpdateVisualRotation()
+    {
+        _characterModel.rotation = Quaternion.Lerp(_characterModel.rotation, Quaternion.Euler(0, _cameraRotation.rotation.eulerAngles.y, 0), _turnSpeed * Time.fixedDeltaTime);
+    }
+
+    private void UpdateMovement()
     {
         Vector3 finalDirection = _movementInput.x * _cameraRotation.right + _movementInput.y * _cameraRotation.forward;
         finalDirection = new Vector3(finalDirection.x, 0, finalDirection.z);
         _characterControler.Move(_speed * Time.fixedDeltaTime * finalDirection);
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMovement();
+        UpdateVisualRotation();
     }
 }

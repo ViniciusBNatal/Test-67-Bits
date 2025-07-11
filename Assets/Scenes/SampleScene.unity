@@ -1384,6 +1384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _cameraRotation: {fileID: 652856883}
+  _turnSpeed: 2
+  _characterModel: {fileID: 566985079}
 --- !u!114 &1948568514
 MonoBehaviour:
   m_ObjectHideFlags: 0
