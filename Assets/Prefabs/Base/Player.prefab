@@ -402,7 +402,7 @@ MonoBehaviour:
   - PoolType: 1
     ObjectSize: 0.5
   _pilePivot: {fileID: 3020169621397545448}
-  _maxPileObjects: 50
+  _maxPileObjects: 30
   _initialMaxPileObjects: 5
   _inertiaAnimationCurve:
     serializedVersion: 2
@@ -428,8 +428,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _maxObjectAngle: 45
-  _tickFrequency: 0.2
+  _maxObjectAngle: 90
+  _rotationMultipier: 20
+  _tickFrequency: 0.05
 --- !u!1001 &4226648705853603110
 PrefabInstance:
   m_ObjectHideFlags: 0

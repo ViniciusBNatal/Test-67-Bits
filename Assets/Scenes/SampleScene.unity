@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c78ed3b6a55ee54c89ba51ca61c465e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPositionOffset: {x: -4.35, y: -1.35, z: 0}
+  _spawnPositionOffset: {x: -6.67, y: -1.35, z: 0}
   _spawnData: {fileID: 11400000, guid: 9aab0239a6ee5fb4ea8cfc76f8e5a11b, type: 2}
   _spawnPositionGizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &520941668

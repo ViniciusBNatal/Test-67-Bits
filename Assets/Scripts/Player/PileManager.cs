@@ -11,12 +11,13 @@ public class PileManager : MonoSingleton<PileManager>
     [SerializeField] private byte _maxPileObjects;
     [SerializeField] private byte _initialMaxPileObjects;
     [SerializeField] private AnimationCurve _inertiaAnimationCurve;
-    [SerializeField, Min(0f)] private float _maxObjectAngle = 45f;
+    [SerializeField, Range(0f, 180f)] private float _maxObjectAngle = 45f;
+    [SerializeField, Min(1f)] private float _rotationMultipier;
     [SerializeField, Min(0f)] private float _tickFrequency;
 
     private List<PileObjectData> _pileObjects = new List<PileObjectData>();
     private byte _currentMaxPileObjects;
-    private Vector2 _movementDirection;
+    private Vector3 _movementDirection;
     private Coroutine _inertiaCoroutine;
 
     [Serializable]
@@ -53,11 +54,14 @@ public class PileManager : MonoSingleton<PileManager>
         {
             for (int i = 0; i < _pileObjects.Count; i++)
             {
-                finalRotation = Quaternion.Euler(-_movementDirection * (i + 1));
-                if(Quaternion.Angle(_pileObjects[i].Transform.localRotation, finalRotation) <= _maxObjectAngle * (i + 1) / _maxPileObjects)
+                finalRotation = Quaternion.Euler((i + 1) * _rotationMultipier * -_movementDirection);
+                float max = _maxPileObjects;
+                Quaternion rot = Quaternion.Lerp(_pileObjects[i].Transform.localRotation, finalRotation,
+                    _inertiaAnimationCurve.Evaluate((i + 1) / max) * _tickFrequency);
+                if (Quaternion.Angle(Quaternion.identity, rot) <= _maxObjectAngle * (i + 1) / _maxPileObjects)
                 {
-                    _pileObjects[i].Transform.localRotation = Quaternion.Lerp(_pileObjects[i].Transform.localRotation, finalRotation,
-                        _inertiaAnimationCurve.Evaluate((i + 1) / _maxPileObjects));
+                    //Debug.Log($"Lerp Value {rot}, T value {(i + 1) / max}");
+                    _pileObjects[i].Transform.localRotation = rot;
                 }
             }
             yield return delay;
