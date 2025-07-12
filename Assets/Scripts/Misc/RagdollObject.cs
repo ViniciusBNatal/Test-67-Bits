@@ -1,28 +1,26 @@
 using UnityEngine;
 
-public class UpdateRagdoll : MonoBehaviour
+public class RagdollObject : PoolingObject
 {
     private Rigidbody[] _rigidbodies;
     private Collider[] _colliders;
-    [SerializeField] private bool _isActive;
 
-    private void Awake()
+    private void Setup()
     {
         _rigidbodies = GetComponentsInChildren<Rigidbody>();
         _colliders = GetComponentsInChildren<Collider>();
-        UpdatePhysics();
     }
 
-    [ContextMenu("Update")]
-    private void UpdatePhysics()
+    public void UpdatePhysics(bool isActive)
     {
+        if (_rigidbodies == null) Setup();
         for (int i = 0; i < _rigidbodies.Length; i++)
         {
-            _rigidbodies[i].isKinematic = !_isActive;
+            _rigidbodies[i].isKinematic = isActive;
         }
         for (int i = 0; i < _colliders.Length; i++)
         {
-            _colliders[i].enabled = _isActive;
+            _colliders[i].enabled = isActive;
         }
-    }
+    } 
 }
