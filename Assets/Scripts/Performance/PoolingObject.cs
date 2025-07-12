@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class PoolingObject : MonoBehaviour
 {
-    public Action<PoolingObject> OnFinished;
+    [SerializeField] private PoolObjectData _poolData;
 
+    public Action<PoolingObject> OnFinished;
+    //public PoolObjectData PoolData => _poolData; 
     protected virtual void OnDisable()
     {
         OnFinished?.Invoke(this);

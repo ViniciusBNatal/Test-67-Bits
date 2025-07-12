@@ -4,6 +4,13 @@ public class RagdollObject : PoolingObject
 {
     private Rigidbody[] _rigidbodies;
     private Collider[] _colliders;
+    [SerializeField] private PoolObjectData _pileObjectToAdd;
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        PileManager.Instance.AddToPile(_pileObjectToAdd);
+    }
 
     private void Setup()
     {
@@ -22,5 +29,5 @@ public class RagdollObject : PoolingObject
         {
             _colliders[i].enabled = isActive;
         }
-    } 
+    }
 }

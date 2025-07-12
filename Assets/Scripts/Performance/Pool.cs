@@ -6,11 +6,11 @@ public class Pool<T> where T : PoolingObject
     private Queue<PoolingObject> m_Pool;
     private PoolingObject m_Prefab;
 
-    public Pool(PoolingObject prefab)
+    public Pool(PoolObjectData prefab)
     {
         m_Pool = new Queue<PoolingObject>();
 
-        m_Prefab = prefab;
+        m_Prefab = prefab.PoolObject;
     }
 
     public T Get()

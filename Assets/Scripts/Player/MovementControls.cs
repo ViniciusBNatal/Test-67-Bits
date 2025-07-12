@@ -22,7 +22,7 @@ public class MovementControls : MonoBehaviour
 
     private void HandleMovePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
-        _movementInput = obj.ReadValue<Vector2>();
+        _movementInput = obj.ReadValue<Vector2>().normalized;
         OnInputUpdate?.Invoke(_movementInput != Vector2.zero);
     }
 

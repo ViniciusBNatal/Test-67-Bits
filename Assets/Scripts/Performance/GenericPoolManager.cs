@@ -2,18 +2,18 @@ using System.Collections.Generic;
 
 public class GenericPoolManager : MonoSingleton<GenericPoolManager>
 {
-    Dictionary<PoolingObject, Pool<PoolingObject>> _pools = new();
+    Dictionary<int, Pool<PoolingObject>> _pools = new();
 
-    public PoolingObject GetPoolingObject(PoolingObject poolingObject)
+    public PoolingObject GetPoolingObject(PoolObjectData poolObjectData)
     {
-        if (!_pools.ContainsKey(poolingObject))
+        if (!_pools.ContainsKey(poolObjectData.PoolType))
         {
-            Pool<PoolingObject> pool = new Pool<PoolingObject>(poolingObject);
+            Pool<PoolingObject> pool = new Pool<PoolingObject>(poolObjectData);
 
-            _pools.Add(poolingObject, pool);
+            _pools.Add(poolObjectData.PoolType, pool);
         }
 
-        return _pools[poolingObject].Get();
+        return _pools[poolObjectData.PoolType].Get();
 
     }
 }

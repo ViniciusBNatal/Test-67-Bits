@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01235959ed84a5c4ea58de705ff16ca1, type: 3}
+  m_Name: BoyRagdollPoolData
+  m_EditorClassIdentifier: 
+  _poolType: 0
+  _poolObject: {fileID: 3991232485967372060, guid: 10a2ea028efe1fd46bc2860f3f8b1df4, type: 3}

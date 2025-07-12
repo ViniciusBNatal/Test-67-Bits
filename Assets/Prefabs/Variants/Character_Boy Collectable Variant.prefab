@@ -20,13 +20,37 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 122754955288635197, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 492821469665583130, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 778747235141211146, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 803564641587302119, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051789679837275613, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166227837276604230, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265557269920931283, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265557269920931283, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1384614041333951460, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
@@ -40,9 +64,53 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1733565102650787031, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733565102650787031, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750771328528654564, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793869074381414586, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793869074381414586, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015454620423063363, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015454620423063363, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2025148589898945779, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415586318377017992, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415586318377017992, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587825762723674326, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2738140352748175033, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2877733803586470552, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
@@ -50,6 +118,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3123622902747125347, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123622902747125347, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123622902747125347, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3189333050656666375, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
@@ -112,6 +188,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4944034991870178997, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944034991870178997, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5047102849003214986, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -123,6 +207,14 @@ PrefabInstance:
     - target: {fileID: 5099622989241823511, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252880783090595989, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252880783090595989, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5291130674688470099, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
@@ -136,6 +228,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5933158671645904511, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933158671645904511, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6028803512140606983, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -148,13 +248,33 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6580720253814026069, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7184504377420411315, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7264227548914210507, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264227548914210507, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7523952583455073270, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572778998498505207, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895522810088249585, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8062846199604510097, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
@@ -168,9 +288,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 8713977469184624948, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713977469184624948, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8864609807422803671, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114417309783889137, guid: db68a4307bc751141a50dfcfbb0d338e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -267,18 +399,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2644394207237124862}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2875272751966833677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,9 +419,9 @@ MonoBehaviour:
   _onEndTimer:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3991232485967372060}
-        m_TargetAssemblyTypeName: RagdollObject, Assembly-CSharp
-        m_MethodName: UpdatePhysics
+      - m_Target: {fileID: 7170566149141854353}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -310,18 +430,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7422807916486920059}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &3991232485967372060
 MonoBehaviour:
@@ -335,3 +443,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821c14adbacb55c4eb066f3cd9cec751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _poolData: {fileID: 11400000, guid: 9aab0239a6ee5fb4ea8cfc76f8e5a11b, type: 2}
+  _pileObjectToAdd: {fileID: 11400000, guid: ef05797b9ffb83a448022ef46a84194c, type: 2}
