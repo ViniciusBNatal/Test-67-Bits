@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6191570525408268500}
   - component: {fileID: 4634545846834610982}
   - component: {fileID: 5976415948671549342}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: PunchDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,12 +153,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5652610042285627577}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.93, z: -0.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4534269931696632081}
+  m_Father: {fileID: 7397258612947475788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6783111555524929154
 GameObject:
@@ -290,7 +290,6 @@ Transform:
   - {fileID: 7397258612947475788}
   - {fileID: 3552898809203352859}
   - {fileID: 8594654920554441882}
-  - {fileID: 3020169621397545448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2728749817621922939
@@ -372,7 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _cameraRotation: {fileID: 3552898809203352859}
-  _turnSpeed: 2
+  _turnSpeed: 5
   _characterModel: {fileID: 7397258612947475788}
 --- !u!114 &5832080140922449713
 MonoBehaviour:
@@ -399,6 +398,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad4d3f214b565c4e825e56d6c605574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pileObjectsSizeData:
+  - PoolType: 1
+    ObjectSize: 0.5
+  _pilePivot: {fileID: 3020169621397545448}
+  _maxPileObjects: 50
+  _initialMaxPileObjects: 5
+  _inertiaAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _maxObjectAngle: 45
+  _tickFrequency: 0.2
 --- !u!1001 &4226648705853603110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,7 +497,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3641801172823493904, guid: 43c644ebce2c71a42b8a219fa17ad581, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6629374649034236010, guid: 43c644ebce2c71a42b8a219fa17ad581, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3020169621397545448}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43c644ebce2c71a42b8a219fa17ad581, type: 3}
 --- !u!4 &7024054894851799660 stripped

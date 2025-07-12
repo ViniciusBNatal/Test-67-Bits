@@ -21,13 +21,13 @@ public class RagdollObject : PoolingObject
     public void UpdatePhysics(bool isActive)
     {
         if (_rigidbodies == null) Setup();
-        for (int i = 0; i < _rigidbodies.Length; i++)
-        {
-            _rigidbodies[i].isKinematic = isActive;
-        }
         for (int i = 0; i < _colliders.Length; i++)
         {
             _colliders[i].enabled = isActive;
+        }
+        for (int i = 0; i < _rigidbodies.Length; i++)
+        {
+            _rigidbodies[i].isKinematic = !isActive;
         }
     }
 }

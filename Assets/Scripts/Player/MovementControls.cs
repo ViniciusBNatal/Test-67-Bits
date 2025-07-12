@@ -13,6 +13,7 @@ public class MovementControls : MonoBehaviour
     private Vector2 _movementInput;
 
     public Action<bool> OnInputUpdate;
+    public Action<Vector3> OnMovement;
 
     private void Start()
     {
@@ -33,9 +34,10 @@ public class MovementControls : MonoBehaviour
 
     private void UpdateMovement()
     {
-        Vector3 finalDirection = _movementInput.x * _cameraRotation.right + _movementInput.y * _cameraRotation.forward;
-        finalDirection = new Vector3(finalDirection.x, 0, finalDirection.z);
-        _characterControler.Move(_speed * Time.fixedDeltaTime * finalDirection);
+        Vector3 finalSpeed = _movementInput.x * _cameraRotation.right + _movementInput.y * _cameraRotation.forward;
+        finalSpeed = _speed * Time.fixedDeltaTime * new Vector3(finalSpeed.x, 0, finalSpeed.z);
+        _characterControler.Move(finalSpeed);
+        OnMovement?.Invoke(finalSpeed);
     }
 
     private void FixedUpdate()
