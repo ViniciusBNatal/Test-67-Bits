@@ -20,6 +20,11 @@ public class PileManager : MonoSingleton<PileManager>
     private Vector3 _movementDirection;
     private Coroutine _inertiaCoroutine;
 
+    public Action<byte> OnUpdatePileMaxCount;
+    public Action<int> OnRemoveFromPile;
+    public Action<float> OnAddToPile;
+    public Action OnPileClear;
+
     [Serializable]
     public struct PileObjectSizeData
     {
@@ -85,6 +90,7 @@ public class PileManager : MonoSingleton<PileManager>
             {
                 _inertiaCoroutine = StartCoroutine(InertiaCoroutine());
             }
+            OnAddToPile?.Invoke(_pileObjects[^1].ObjectData.ObjectSize);
         }
 
         Vector3 GetObjectPositionInPile()
@@ -114,10 +120,17 @@ public class PileManager : MonoSingleton<PileManager>
     public void IncreasePileMaxCap(byte valueIncrease)
     {
         _currentMaxPileObjects = (byte)Mathf.Clamp(_currentMaxPileObjects + valueIncrease, 0, _maxPileObjects);
+        OnUpdatePileMaxCount?.Invoke(_currentMaxPileObjects);
     }
 
-    public void SellPile()
+    public void ClearPile()
     {
-
+        int currentPileCount = _pileObjects.Count;
+        for (int i = 0; i < _pileObjects.Count; i++)
+        {
+            OnRemoveFromPile?.Invoke(_pileObjects[i].ObjectData.PoolType);
+            _pileObjects[i].Transform.gameObject.SetActive(false);
+        }
+        OnPileClear?.Invoke();
     }
 }

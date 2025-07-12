@@ -11,11 +11,27 @@ public class CameraControls : MonoBehaviour
     [SerializeField] private RectTransform _area;
 
     private Vector2 _touchPosition;
+    private Vector3 _cameraInitialPosition;
+    private Transform _cameraTransform;
 
     private void Start()
     {
+        _cameraTransform = _currentTarget.GetChild(0).transform;
+        _cameraInitialPosition = _cameraTransform.localPosition;
         InputManager.Instance.Inputs.Player.Look.performed += HandleLookPerformed;
         InputManager.Instance.Inputs.Player.Touch.performed += HandleTouchPerformed;
+        PileManager.Instance.OnAddToPile += HandlePileUpdate;
+        PileManager.Instance.OnPileClear += HandlePileClear;
+    }
+
+    private void HandlePileClear()
+    {
+        _cameraTransform.localPosition = _cameraInitialPosition;
+    }
+
+    private void HandlePileUpdate(float objectSize)
+    {
+        _cameraTransform.localPosition += -_cameraTransform.forward * objectSize;
     }
 
     private void HandleLookPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
