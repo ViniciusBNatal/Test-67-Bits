@@ -32,7 +32,7 @@ public class CameraControls : MonoBehaviour
 
     private void HandlePileUpdate(float objectSize, int pileSize)
     {
-        _cameraTransform.localPosition -= new Vector3(0, 0, objectSize + pileSize * _increaseCameraDistancePerPileObject);
+        if (_cameraTransform) _cameraTransform.localPosition -= new Vector3(0, 0, objectSize + pileSize * _increaseCameraDistancePerPileObject);
     }
 
     private void HandleLookPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
