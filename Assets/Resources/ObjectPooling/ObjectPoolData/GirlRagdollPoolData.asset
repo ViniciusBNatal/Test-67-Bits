@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da435c758efad5440aa121087dbe866c, type: 3}
-  m_Name: NewPoolTypeList
+  m_Script: {fileID: 11500000, guid: 01235959ed84a5c4ea58de705ff16ca1, type: 3}
+  m_Name: GirlRagdollPoolData
   m_EditorClassIdentifier: 
-  _poolTypes:
-  - BoyWithRagdool
-  - BoyPile
-  - GirlWithRagdool
-  - GirlPile
+  _poolType: 2
+  _poolObject: {fileID: 6286789494604131871, guid: 263bee74155e04444afef9339fd309cd, type: 3}

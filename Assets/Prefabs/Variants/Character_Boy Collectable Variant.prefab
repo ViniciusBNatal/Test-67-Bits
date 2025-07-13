@@ -419,6 +419,18 @@ MonoBehaviour:
   _onEndTimer:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3991232485967372060}
+        m_TargetAssemblyTypeName: RagdollObject, Assembly-CSharp
+        m_MethodName: UpdatePhysics
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 7170566149141854353}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
