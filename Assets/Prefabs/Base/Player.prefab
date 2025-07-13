@@ -444,7 +444,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _maxObjectAngle: 90
-  _rotationMultipier: 20
+  _rotationMultipier: 400
   _tickFrequency: 0.02
 --- !u!1001 &4226648705853603110
 PrefabInstance:

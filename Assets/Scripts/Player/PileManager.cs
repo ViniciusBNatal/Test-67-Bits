@@ -13,7 +13,6 @@ public class PileManager : MonoSingleton<PileManager>
     [SerializeField] private AnimationCurve _inertiaAnimationCurve;
     [SerializeField, Range(0f, 180f)] private float _maxObjectAngle = 45f;
     [SerializeField, Min(1f)] private float _rotationMultipier;
-    [SerializeField, Min(0f)] private float _tickFrequency;
 
     private List<PileObjectData> _pileObjects = new List<PileObjectData>();
     private byte _currentMaxPileObjects;
@@ -44,38 +43,65 @@ public class PileManager : MonoSingleton<PileManager>
         }
     }
 
-    protected override void Awake()
+    private void Start()
     {
-        base.Awake();
         _currentMaxPileObjects = _initialMaxPileObjects;
-        GetComponent<MovementControls>().OnMovement += HandleOnMovement;
+        InputManager.Instance.Inputs.Player.Move.performed += HandleOnMovement;
     }
 
     private IEnumerator InertiaCoroutine()
     {
-        WaitForSeconds delay = new WaitForSeconds(_tickFrequency);
         Quaternion finalRotation;
-        while (true)
+        Vector3 finalPosition;
+        Vector3 direction;
+        byte updateSequenceCount = 0;
+        float max = _maxPileObjects;
+        while (_pileObjects.Count > 0)
         {
+            direction = _movementDirection.x != 0 && _movementDirection.z != 0 ? -_movementDirection : _movementDirection;
+            finalRotation = Quaternion.Euler(_rotationMultipier * direction);            
             for (int i = 0; i < _pileObjects.Count; i++)
             {
-                finalRotation = Quaternion.Euler((i + 1) * _rotationMultipier * -_movementDirection);
-                float max = _maxPileObjects;
-                Quaternion rot = Quaternion.Lerp(_pileObjects[i].Transform.localRotation, finalRotation,
-                    _inertiaAnimationCurve.Evaluate((i + 1) / max) * _tickFrequency);
-                if (Quaternion.Angle(Quaternion.identity, rot) <= _maxObjectAngle * (i + 1) / _maxPileObjects)
+                finalRotation = Quaternion.Lerp(_pileObjects[i].Transform.localRotation, finalRotation,
+                    _inertiaAnimationCurve.Evaluate((i + 1) / max));
+
+                finalPosition = GetObjectPositionInPile(i);
+
+                if (Quaternion.Angle(Quaternion.identity, finalRotation) <= _maxObjectAngle * (i + 1) / max)
                 {
-                    //Debug.Log($"Lerp Value {rot}, T value {(i + 1) / max}");
-                    _pileObjects[i].Transform.localRotation = rot;
+                    _pileObjects[i].Transform.SetLocalPositionAndRotation(finalPosition, finalRotation);
+                }
+
+                if (updateSequenceCount == i)
+                {
+                    updateSequenceCount++;
+                    if (updateSequenceCount >= _pileObjects.Count) updateSequenceCount = 0;
+                    break;
                 }
             }
-            yield return delay;
+            yield return null;
         }
+        _inertiaCoroutine = null;
     }
 
-    private void HandleOnMovement(Vector3 movement)
+    private Vector3 GetObjectPositionInPile(int index)
     {
-        _movementDirection = movement.normalized;
+        if (index > 0)
+        {
+            int previousIndex = index - 1;
+            Vector4 temp = _pileObjects[previousIndex].Transform.worldToLocalMatrix * Vector3.up;
+
+            return _pileObjects[previousIndex].Transform.localPosition +
+                (_pileObjects[previousIndex].ObjectData.ObjectSize + _pileObjects[index].ObjectData.ObjectSize) / 2 *
+                new Vector3(-temp.x, temp.y, -temp.z);
+        }
+        else return Vector3.zero;
+    }
+
+    private void HandleOnMovement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        Vector2 input = obj.ReadValue<Vector2>();
+        _movementDirection = new Vector3(-input.y, 0, input.x);
     }
 
     public void AddToPile(PoolObjectData poolData)
@@ -83,24 +109,16 @@ public class PileManager : MonoSingleton<PileManager>
         if (_pileObjects.Count + 1 <= _currentMaxPileObjects)
         {
             PoolingObject obj = GenericPoolManager.Instance.GetPoolingObject(poolData);
-            _pileObjects.Add(new PileObjectData(obj.transform, GetObjectSize()));
+            PileObjectSizeData objectSizeData = GetObjectSize();
+            PileObjectData objectData = new PileObjectData(obj.transform, objectSizeData);
+            _pileObjects.Add(objectData);
             obj.transform.SetParent(_pilePivot);
-            obj.transform.SetLocalPositionAndRotation(GetObjectPositionInPile(), Quaternion.identity);
+            obj.transform.SetLocalPositionAndRotation(GetObjectPositionInPile(_pileObjects.Count - 1), Quaternion.identity);
             if (_inertiaCoroutine == null)
             {
                 _inertiaCoroutine = StartCoroutine(InertiaCoroutine());
             }
             OnAddToPile?.Invoke(_pileObjects[^1].ObjectData.ObjectSize);
-        }
-
-        Vector3 GetObjectPositionInPile()
-        {
-            if (_pileObjects.Count > 1)
-            {
-                int lastIndex = _pileObjects.Count - 1;
-                return (_pileObjects[lastIndex - 1].ObjectData.ObjectSize + _pileObjects[lastIndex].ObjectData.ObjectSize) / 2 * Vector3.up * _pileObjects.Count;
-            }
-            else return Vector3.zero;
         }
 
         PileObjectSizeData GetObjectSize()
@@ -125,12 +143,12 @@ public class PileManager : MonoSingleton<PileManager>
 
     public void ClearPile()
     {
-        int currentPileCount = _pileObjects.Count;
         for (int i = 0; i < _pileObjects.Count; i++)
         {
             OnRemoveFromPile?.Invoke(_pileObjects[i].ObjectData.PoolType);
             _pileObjects[i].Transform.gameObject.SetActive(false);
         }
+        _pileObjects.Clear();
         OnPileClear?.Invoke();
     }
 }

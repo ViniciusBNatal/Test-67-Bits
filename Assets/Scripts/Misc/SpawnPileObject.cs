@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnPileObject : MonoBehaviour
 {
-    [SerializeField] private Vector3 _spawnPositionOffset;
+    [SerializeField] private Vector3[] _spawnPositionOffsets;
     [SerializeField] private PoolObjectData _spawnData;
 #if UNITY_EDITOR
     [SerializeField] private Color _spawnPositionGizmoColor = Color.red;
@@ -11,14 +11,19 @@ public class SpawnPileObject : MonoBehaviour
     public void Spawn()
     {
         PoolingObject obj = GenericPoolManager.Instance.GetPoolingObject(_spawnData);
-        obj.transform.position = transform.position + _spawnPositionOffset;
+        obj.transform.position = transform.position + _spawnPositionOffsets[Random.Range(0, _spawnPositionOffsets.Length)];
     }
 
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
+        if (_spawnPositionOffsets == null) return;
         Gizmos.color = _spawnPositionGizmoColor;
-        Gizmos.DrawSphere(transform.position + _spawnPositionOffset, .1f);
+        for (int i = 0; i < _spawnPositionOffsets.Length; i++)
+        {
+            UnityEditor.Handles.Label(transform.position + _spawnPositionOffsets[i] + Vector3.up, new GUIContent(i.ToString()));
+            Gizmos.DrawSphere(transform.position + _spawnPositionOffsets[i], .1f);
+        }
     }
 #endif
 }

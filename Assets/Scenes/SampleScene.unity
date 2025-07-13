@@ -628,7 +628,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c78ed3b6a55ee54c89ba51ca61c465e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPositionOffset: {x: -6.67, y: -1.35, z: 0}
+  _spawnPositionOffsets:
+  - {x: -9.85, y: 0, z: 0}
+  - {x: -4.67, y: 0, z: 7.8}
+  - {x: 3.92, y: 0, z: 7.6}
   _spawnData: {fileID: 11400000, guid: 9aab0239a6ee5fb4ea8cfc76f8e5a11b, type: 2}
   _spawnPositionGizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &520941668
@@ -2655,8 +2658,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5063215226842916589, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
-      propertyPath: _rotationMultipier
-      value: 10
+      propertyPath: _maxPileNumberToAchiveMaxAngle
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5536755747854704761, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
       propertyPath: _area
