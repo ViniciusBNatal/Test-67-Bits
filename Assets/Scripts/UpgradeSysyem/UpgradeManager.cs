@@ -49,6 +49,7 @@ public class UpgradeManager : MonoSingleton<UpgradeManager>
 
     public void UpdateLevel()
     {
+        if (_currentLevel >= _moneyRequiredToLevelUp.Length) return;
         for(int i = _currentLevel; i < _moneyRequiredToLevelUp.Length; i++)
         {
             if (_currentMoney >= _moneyRequiredToLevelUp[i])

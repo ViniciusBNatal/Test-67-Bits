@@ -31,13 +31,13 @@ public class CameraControls : MonoBehaviour
 
     private void HandlePileUpdate(float objectSize)
     {
-        _cameraTransform.localPosition += -_cameraTransform.forward * objectSize;
+        _cameraTransform.localPosition -= new Vector3(0, 0, objectSize);
     }
 
     private void HandleLookPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         Vector2 input = obj.ReadValue<Vector2>();
-        if(input != Vector2.zero && CheckTouchArea())
+        if (input != Vector2.zero && CheckTouchArea())
         {
             Vector3 finalRotation = _currentTarget.eulerAngles + _sensitivity * new Vector3(-input.y, input.x, 0) / Screen.currentResolution.width;
             //Debug.Log($"input {input.y}, final rot {finalRotation.x}");

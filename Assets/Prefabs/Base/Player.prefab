@@ -413,7 +413,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pileObjectsSizeData:
   - PoolType: 1
-    ObjectSize: 0.5
+    ObjectSize: 0.75
+  - PoolType: 3
+    ObjectSize: 1
   _pilePivot: {fileID: 3020169621397545448}
   _maxPileObjects: 30
   _initialMaxPileObjects: 5
@@ -443,7 +445,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _maxObjectAngle: 90
   _rotationMultipier: 20
-  _tickFrequency: 0.05
+  _tickFrequency: 0.02
 --- !u!1001 &4226648705853603110
 PrefabInstance:
   m_ObjectHideFlags: 0

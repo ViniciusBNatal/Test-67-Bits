@@ -9,7 +9,7 @@ public class RagdollObject : PoolingObject
     protected override void OnDisable()
     {
         base.OnDisable();
-        PileManager.Instance.AddToPile(_pileObjectToAdd);
+        if(PileManager.Instance) PileManager.Instance.AddToPile(_pileObjectToAdd);
     }
 
     private void Setup()

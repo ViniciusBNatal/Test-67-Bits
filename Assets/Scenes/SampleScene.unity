@@ -858,7 +858,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32134d361064c6c48aa202d37a7a1ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colorByLevelList: []
+  _colorByLevelList:
+  - LevelRequired: 1
+    Color: {r: 1, g: 0, b: 0, a: 1}
+  - LevelRequired: 2
+    Color: {r: 0.24222147, g: 1, b: 0, a: 1}
+  - LevelRequired: 3
+    Color: {r: 0, g: 0.5085707, b: 1, a: 1}
+  - LevelRequired: 4
+    Color: {r: 1, g: 0, b: 0.9716425, a: 1}
+  - LevelRequired: 5
+    Color: {r: 1, g: 0.84489095, b: 0, a: 1}
 --- !u!1 &685857154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1392,7 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1471,7 +1481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb00cfec1922414a9a1d7ea13a3401e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shopMode: 1
+  _shopMode: 0
 --- !u!114 &1114504249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,7 +1749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1812,7 +1822,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b720f2dea2400634898af39eaefa3a8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxPileIncreaseByLevelList: []
+  _maxPileIncreaseByLevelList:
+  - LevelRequired: 1
+    MaxCapIncrease: 1
+  - LevelRequired: 2
+    MaxCapIncrease: 2
+  - LevelRequired: 3
+    MaxCapIncrease: 3
+  - LevelRequired: 4
+    MaxCapIncrease: 4
+  - LevelRequired: 5
+    MaxCapIncrease: 5
 --- !u!1 &1460159325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,7 +2296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2386,7 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2496,8 +2516,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07dcf3f8e23968648a53eed9ffd2d74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectPricesList: []
-  _moneyRequiredToLevelUp: []
+  _objectPricesList:
+  - PoolType: 1
+    Value: 5
+  - PoolType: 3
+    Value: 10
+  _moneyRequiredToLevelUp:
+  - 10
+  - 20
+  - 30
+  - 40
+  - 50
 --- !u!1 &2073999813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,7 +2577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2624,6 +2653,10 @@ PrefabInstance:
     - target: {fileID: 4534269931696632081, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5063215226842916589, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
+      propertyPath: _rotationMultipier
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5536755747854704761, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
       propertyPath: _area
