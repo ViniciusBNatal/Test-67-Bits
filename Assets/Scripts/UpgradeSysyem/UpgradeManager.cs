@@ -19,16 +19,20 @@ public class UpgradeManager : MonoSingleton<UpgradeManager>
         [Min(0f)] public float Value;
     }
 
-    protected override void Awake()
+    private void Start()
     {
-        base.Awake();
         PileManager.Instance.OnRemoveFromPile += AddMoney;
+        PileManager.Instance.OnPileClear += () => OnMoneyUpdate?.Invoke(_currentMoney);
     }
 
-    public void AddMoney(int objectToSellId)
+    public void UpdateMoney()
     {
-        _currentMoney += GetMoneyValueById();
-        OnMoneyUpdate?.Invoke(_currentMoney);
+        PileManager.Instance.ClearPile();
+    }
+
+    private void AddMoney(int objectToSellId)
+    {
+        _currentMoney += GetMoneyValueById();        
 
         float GetMoneyValueById()
         {

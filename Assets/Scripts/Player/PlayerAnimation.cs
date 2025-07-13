@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Transform _punchRotationBone;
@@ -10,7 +11,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponentInChildren<Animator>();
+        _animator = GetComponent<Animator>();
         GetComponent<MovementControls>().OnInputUpdate += HandleOnInputUpdate;
         GetComponentInChildren<PunchBehaviour>().OnPunch += HandleOnPunch;
     }
