@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 2745220779906028625}
   - component: {fileID: 5832080140922449713}
   - component: {fileID: 2601713907278238944}
-  - component: {fileID: 5063215226842916589}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -353,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sensitivity: 300
-  _maxAxisXAngle: 60
+  _increaseCameraDistancePerPileObject: 0.2
   _dragAreaBlockPrecentX: 0.25
   _dragAreaBlockPrecentY: 0.35
   _currentTarget: {fileID: 3552898809203352859}
@@ -370,10 +369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebb7885098cd6c4abae07f38c3b0acd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
   _cameraRotation: {fileID: 3552898809203352859}
-  _turnSpeed: 5
   _characterModel: {fileID: 7397258612947475788}
+  _speed: 10
+  _turnSpeed: 5
 --- !u!114 &5832080140922449713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _punchRotationBone: {fileID: 7024054894851799660}
+  _punchAnimationLayer: 1
 --- !u!114 &2601713907278238944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,53 +399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec150cb088cfc241add3ffedff080b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5063215226842916589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168618072057770032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad4d3f214b565c4e825e56d6c605574, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pileObjectsSizeData:
-  - PoolType: 1
-    ObjectSize: 0.75
-  - PoolType: 3
-    ObjectSize: 1
-  _pilePivot: {fileID: 3020169621397545448}
-  _maxPileObjects: 30
-  _initialMaxPileObjects: 5
-  _inertiaAnimationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _maxObjectAngle: 90
-  _rotationMultipier: 400
-  _tickFrequency: 0.02
 --- !u!1001 &4226648705853603110
 PrefabInstance:
   m_ObjectHideFlags: 0

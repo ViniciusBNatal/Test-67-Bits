@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[RequireComponent(typeof(MovementControls))]
 public class PileManager : MonoSingleton<PileManager>
 {
     [SerializeField] private byte _maxPileObjects;

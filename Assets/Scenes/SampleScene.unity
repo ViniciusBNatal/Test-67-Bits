@@ -256,6 +256,84 @@ Transform:
   - {fileID: 561448094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &182163913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182163914}
+  - component: {fileID: 182163915}
+  m_Layer: 0
+  m_Name: PileManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &182163914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182163913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 342680123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182163915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182163913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad4d3f214b565c4e825e56d6c605574, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxPileObjects: 30
+  _initialMaxPileObjects: 5
+  _maxObjectAngle: 90
+  _rotationMultipier: 400
+  _pilePivot: {fileID: 1148600355}
+  _inertiaAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _pileObjectsSizeData:
+  - PoolType: 1
+    ObjectSize: 0.75
+  - PoolType: 3
+    ObjectSize: 1
 --- !u!1 &196928274
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +484,7 @@ Transform:
   - {fileID: 1477551231}
   - {fileID: 981242436}
   - {fileID: 2061966417}
+  - {fileID: 182163914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
@@ -1590,6 +1669,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114504246}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1148600355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3020169621397545448, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
+  m_PrefabInstance: {fileID: 7927830024747453333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1166191258
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,7 +2939,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5063215226842916589, guid: 55e36e25f60d35c4186faa69fc8a5f2b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
