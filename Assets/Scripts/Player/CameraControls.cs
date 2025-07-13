@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class CameraControls : MonoBehaviour
 {
@@ -11,19 +12,27 @@ public class CameraControls : MonoBehaviour
     [SerializeField] private Transform _currentTarget;
     [SerializeField] private RectTransform _area;
 
-    private Vector2 _touchPosition;
+    private Vector2 _previousTouchPos;
     private Vector3 _cameraInitialPosition;
     private Transform _cameraTransform;
+    private int _touchIndex = -1;
+
+    private void Awake()
+    {
+        EnhancedTouchSupport.Enable();        
+    }    
 
     private void Start()
     {
         _cameraTransform = _currentTarget.GetChild(0).transform;
         _cameraInitialPosition = _cameraTransform.localPosition;
-        InputManager.Instance.Inputs.Player.Look.performed += HandleLookPerformed;
-        InputManager.Instance.Inputs.Player.Touch.performed += HandleTouchPerformed;
         PileManager.Instance.OnAddToPile += HandlePileUpdate;
         PileManager.Instance.OnPileClear += HandlePileClear;
-    }
+
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerDown += HandleOnFingerDown;
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerMove += HandleOnFingerMove;
+        UnityEngine.InputSystem.EnhancedTouch.Touch.onFingerUp += HandleOnFingerUp;
+    }    
 
     private void HandlePileClear()
     {
@@ -35,26 +44,39 @@ public class CameraControls : MonoBehaviour
         if (_cameraTransform) _cameraTransform.localPosition -= new Vector3(0, 0, objectSize + pileSize * _increaseCameraDistancePerPileObject);
     }
 
-    private void HandleLookPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void HandleOnFingerDown(Finger obj)
     {
-        Vector2 input = obj.ReadValue<Vector2>();
-        if (input != Vector2.zero && CheckTouchArea())
+        if (CheckTouchArea(obj.currentTouch.startScreenPosition) && _touchIndex == -1) _touchIndex = obj.index;
+    }
+
+    private void HandleOnFingerMove(Finger obj)
+    {
+        if(obj.index == _touchIndex)
         {
-            Vector3 finalRotation = _currentTarget.eulerAngles + _sensitivity * new Vector3(-input.y, input.x, 0) / Screen.currentResolution.width;
-            finalRotation = new Vector3(finalRotation.x, finalRotation.y, 0);
-            _currentTarget.eulerAngles = finalRotation;
+            if(_previousTouchPos != Vector2.zero)
+            {
+                Vector2 input = (obj.screenPosition - _previousTouchPos).normalized;
+                Vector3 finalRotation = _currentTarget.eulerAngles + _sensitivity * new Vector3(-input.y, input.x, 0) / Screen.currentResolution.width;
+                finalRotation = new Vector3(finalRotation.x, finalRotation.y, 0);
+                _currentTarget.eulerAngles = finalRotation;
+            }
+            _previousTouchPos = obj.screenPosition;
         }
     }
 
-    private void HandleTouchPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    private void HandleOnFingerUp(Finger obj)
     {
-        _touchPosition = obj.ReadValue<Vector2>();
+        if (obj.index == _touchIndex)
+        {
+            _touchIndex = -1;
+            _previousTouchPos = Vector2.zero;
+        }
     }
 
-    private bool CheckTouchArea()
+    private bool CheckTouchArea(Vector3 touchPosition)
     {
-        return _touchPosition.y > Screen.height * _dragAreaBlockPrecentY &&
-            _touchPosition.x > Screen.width * _dragAreaBlockPrecentX;
+        return touchPosition.y > Screen.height * _dragAreaBlockPrecentY &&
+            touchPosition.x > Screen.width * _dragAreaBlockPrecentX;
     }
 
 #if UNITY_EDITOR

@@ -351,10 +351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e93161d558e6f9439750fce9fc3ac8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensitivity: 300
+  _sensitivity: 2000
   _increaseCameraDistancePerPileObject: 0.2
   _dragAreaBlockPrecentX: 0.25
-  _dragAreaBlockPrecentY: 0.35
+  _dragAreaBlockPrecentY: 0
   _currentTarget: {fileID: 3552898809203352859}
   _area: {fileID: 0}
 --- !u!114 &2745220779906028625
