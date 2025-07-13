@@ -3,14 +3,14 @@ using UnityEngine;
 public class SpawnPileObject : MonoBehaviour
 {
     [SerializeField] private Vector3[] _spawnPositionOffsets;
-    [SerializeField] private PoolObjectData _spawnData;
+    [SerializeField] private PoolObjectData[] _spawnDatas;
 #if UNITY_EDITOR
     [SerializeField] private Color _spawnPositionGizmoColor = Color.red;
 #endif
 
     public void Spawn()
     {
-        PoolingObject obj = GenericPoolManager.Instance.GetPoolingObject(_spawnData);
+        PoolingObject obj = GenericPoolManager.Instance.GetPoolingObject(_spawnDatas[Random.Range(0, _spawnDatas.Length)]);
         obj.transform.position = transform.position + _spawnPositionOffsets[Random.Range(0, _spawnPositionOffsets.Length)];
     }
 

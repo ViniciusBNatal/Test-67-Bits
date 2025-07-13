@@ -328,6 +328,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 616839890357773678, guid: 7353a935c9b2f6b49996011896f47f83, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6286789494604131871}
+    - targetCorrespondingSourceObject: {fileID: 616839890357773678, guid: 7353a935c9b2f6b49996011896f47f83, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1455388866147886371}
   m_SourcePrefab: {fileID: 100100000, guid: 7353a935c9b2f6b49996011896f47f83, type: 3}
 --- !u!1 &1752579217939023495 stripped
 GameObject:
@@ -373,6 +376,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 48716816189071891}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1455388866147886371}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -451,6 +466,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1455388866147886371}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 48716816189071891}
         m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
         m_MethodName: set_enabled
@@ -477,3 +504,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _poolData: {fileID: 11400000, guid: 2be358d7a956833438035b2a9fedef4e, type: 2}
   _pileObjectToAdd: {fileID: 11400000, guid: daebbf23dfbad964fa94ccfda9944ab8, type: 2}
+--- !u!95 &1455388866147886371
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752579217939023495}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 047e1093c0d6cf64db006217b6b5cd65, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

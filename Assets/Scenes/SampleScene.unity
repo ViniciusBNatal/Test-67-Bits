@@ -633,7 +633,9 @@ MonoBehaviour:
   - {x: -9.85, y: 0, z: 0}
   - {x: -4.67, y: 0, z: 7.8}
   - {x: 3.92, y: 0, z: 7.6}
-  _spawnData: {fileID: 11400000, guid: 9aab0239a6ee5fb4ea8cfc76f8e5a11b, type: 2}
+  _spawnDatas:
+  - {fileID: 11400000, guid: 9aab0239a6ee5fb4ea8cfc76f8e5a11b, type: 2}
+  - {fileID: 11400000, guid: 2be358d7a956833438035b2a9fedef4e, type: 2}
   _spawnPositionGizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &520941668
 MonoBehaviour:
