@@ -4,7 +4,8 @@ using UnityEngine;
 public class CameraControls : MonoBehaviour
 {
     [SerializeField] private float _sensitivity;
-    [SerializeField, Min(0f)] private float _maxAxisXAngle;
+    //[SerializeField, Min(0f)] private float _maxAxisXAngle;
+    [SerializeField, Range(0f, 1f)] private float _increaseCameraDistancePerPileObject = .2f;
     [SerializeField, Range(0f, 1f)] private float _dragAreaBlockPrecentX;
     [SerializeField, Range(0f, 1f)] private float _dragAreaBlockPrecentY;
     [SerializeField] private Transform _currentTarget;
@@ -29,9 +30,9 @@ public class CameraControls : MonoBehaviour
         _cameraTransform.localPosition = _cameraInitialPosition;
     }
 
-    private void HandlePileUpdate(float objectSize)
+    private void HandlePileUpdate(float objectSize, int pileSize)
     {
-        _cameraTransform.localPosition -= new Vector3(0, 0, objectSize);
+        _cameraTransform.localPosition -= new Vector3(0, 0, objectSize + pileSize * _increaseCameraDistancePerPileObject);
     }
 
     private void HandleLookPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -58,14 +59,8 @@ public class CameraControls : MonoBehaviour
 
     private bool CheckTouchArea()
     {
-        //DebugText.WriteText($"current {_input.position}. Target: {Screen.height}");
-        //return _area.rect.Contains(_touchPosition);
-        //Vector2 initialPos = new Vector2(Screen.width, 0);
         return _touchPosition.y > Screen.height * _dragAreaBlockPrecentY &&
             _touchPosition.x > Screen.width * _dragAreaBlockPrecentX;
-        //return _touchPosition.y < Screen.height * _dragAreaPrecentY &&
-        //    _touchPosition.x < Screen.width * ((1 - _dragAreaPrecentX) / 2 + _dragAreaPrecentX) &&
-        //    _touchPosition.x > Screen.width * (1 - _dragAreaPrecentX) / 2;
     }
 
 #if UNITY_EDITOR

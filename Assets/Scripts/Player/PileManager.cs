@@ -21,7 +21,7 @@ public class PileManager : MonoSingleton<PileManager>
 
     public Action<byte> OnUpdatePileMaxCount;
     public Action<int> OnRemoveFromPile;
-    public Action<float> OnAddToPile;
+    public Action<float, int> OnAddToPile;
     public Action OnPileClear;
 
     [Serializable]
@@ -118,7 +118,7 @@ public class PileManager : MonoSingleton<PileManager>
             {
                 _inertiaCoroutine = StartCoroutine(InertiaCoroutine());
             }
-            OnAddToPile?.Invoke(_pileObjects[^1].ObjectData.ObjectSize);
+            OnAddToPile?.Invoke(_pileObjects[^1].ObjectData.ObjectSize, _pileObjects.Count);
         }
 
         PileObjectSizeData GetObjectSize()
