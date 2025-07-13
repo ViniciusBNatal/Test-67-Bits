@@ -25,11 +25,6 @@ public class UpgradeManager : MonoSingleton<UpgradeManager>
         PileManager.Instance.OnPileClear += () => OnMoneyUpdate?.Invoke(_currentMoney);
     }
 
-    public void UpdateMoney()
-    {
-        PileManager.Instance.ClearPile();
-    }
-
     private void AddMoney(int objectToSellId)
     {
         _currentMoney += GetMoneyValueById();        
@@ -45,6 +40,11 @@ public class UpgradeManager : MonoSingleton<UpgradeManager>
             }
             return 0;
         }
+    }
+
+    public void UpdateMoney()
+    {
+        PileManager.Instance.ClearPile();
     }
 
     public void UpdateLevel()

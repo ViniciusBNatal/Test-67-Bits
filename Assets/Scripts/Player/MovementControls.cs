@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class MovementControls : MonoBehaviour
 {
-    [SerializeField, Min(0f)] private float _speed;
     [SerializeField] private Transform _cameraRotation;
-    [SerializeField] private float _turnSpeed;
     [SerializeField] private Transform _characterModel;
+    [SerializeField, Min(0f)] private float _speed;
+    [SerializeField] private float _turnSpeed;
 
     private CharacterController _characterControler;
     private Vector2 _movementInput;
@@ -18,6 +18,12 @@ public class MovementControls : MonoBehaviour
     {
         _characterControler = GetComponent<CharacterController>();
         InputManager.Instance.Inputs.Player.Move.performed += HandleMovePerformed;
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMovement();
+        UpdateVisualRotation();
     }
 
     private void HandleMovePerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
@@ -36,11 +42,5 @@ public class MovementControls : MonoBehaviour
         Vector3 finalSpeed = _movementInput.x * _cameraRotation.right + _movementInput.y * _cameraRotation.forward;
         finalSpeed = _speed * Time.fixedDeltaTime * new Vector3(finalSpeed.x, 0, finalSpeed.z);
         _characterControler.Move(finalSpeed);
-    }
-
-    private void FixedUpdate()
-    {
-        UpdateMovement();
-        UpdateVisualRotation();
-    }
+    }    
 }

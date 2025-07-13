@@ -41,13 +41,7 @@ public class CameraControls : MonoBehaviour
         if (input != Vector2.zero && CheckTouchArea())
         {
             Vector3 finalRotation = _currentTarget.eulerAngles + _sensitivity * new Vector3(-input.y, input.x, 0) / Screen.currentResolution.width;
-            //Debug.Log($"input {input.y}, final rot {finalRotation.x}");
             finalRotation = new Vector3(finalRotation.x, finalRotation.y, 0);
-            //if ((input.y < 0 && finalRotation.x > _maxAxisXAngle) || (input.y > 0 && finalRotation.x < 360 - _maxAxisXAngle))
-            //{
-            //    finalRotation.x = input.y < 0 ? _maxAxisXAngle + 180 : _maxAxisXAngle;
-            //    Debug.Log($"FINAL X {finalRotation.x}");
-            //}
             _currentTarget.eulerAngles = finalRotation;
         }
     }

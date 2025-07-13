@@ -6,13 +6,13 @@ using System;
 [RequireComponent(typeof(MovementControls))]
 public class PileManager : MonoSingleton<PileManager>
 {
-    [SerializeField] private PileObjectSizeData[] _pileObjectsSizeData;
-    [SerializeField] private Transform _pilePivot;
     [SerializeField] private byte _maxPileObjects;
     [SerializeField] private byte _initialMaxPileObjects;
-    [SerializeField] private AnimationCurve _inertiaAnimationCurve;
     [SerializeField, Range(0f, 180f)] private float _maxObjectAngle = 45f;
     [SerializeField, Min(1f)] private float _rotationMultipier;
+    [SerializeField] private Transform _pilePivot;
+    [SerializeField] private AnimationCurve _inertiaAnimationCurve;
+    [SerializeField] private PileObjectSizeData[] _pileObjectsSizeData;
 
     private List<PileObjectData> _pileObjects = new List<PileObjectData>();
     private byte _currentMaxPileObjects;
@@ -47,6 +47,26 @@ public class PileManager : MonoSingleton<PileManager>
     {
         _currentMaxPileObjects = _initialMaxPileObjects;
         InputManager.Instance.Inputs.Player.Move.performed += HandleOnMovement;
+    }    
+
+    private Vector3 GetObjectPositionInPile(int index)
+    {
+        if (index > 0)
+        {
+            int previousIndex = index - 1;
+            Vector4 temp = _pileObjects[previousIndex].Transform.worldToLocalMatrix * Vector3.up;
+
+            return _pileObjects[previousIndex].Transform.localPosition +
+                (_pileObjects[previousIndex].ObjectData.ObjectSize + _pileObjects[index].ObjectData.ObjectSize) / 2 *
+                new Vector3(-temp.x, temp.y, -temp.z);
+        }
+        else return Vector3.zero;
+    }
+
+    private void HandleOnMovement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        Vector2 input = obj.ReadValue<Vector2>();
+        _movementDirection = new Vector3(-input.y, 0, input.x);
     }
 
     private IEnumerator InertiaCoroutine()
@@ -59,7 +79,7 @@ public class PileManager : MonoSingleton<PileManager>
         while (_pileObjects.Count > 0)
         {
             direction = _movementDirection.x != 0 && _movementDirection.z != 0 ? -_movementDirection : _movementDirection;
-            finalRotation = Quaternion.Euler(_rotationMultipier * direction);            
+            finalRotation = Quaternion.Euler(_rotationMultipier * direction);
             for (int i = 0; i < _pileObjects.Count; i++)
             {
                 finalRotation = Quaternion.Lerp(_pileObjects[i].Transform.localRotation, finalRotation,
@@ -82,26 +102,6 @@ public class PileManager : MonoSingleton<PileManager>
             yield return null;
         }
         _inertiaCoroutine = null;
-    }
-
-    private Vector3 GetObjectPositionInPile(int index)
-    {
-        if (index > 0)
-        {
-            int previousIndex = index - 1;
-            Vector4 temp = _pileObjects[previousIndex].Transform.worldToLocalMatrix * Vector3.up;
-
-            return _pileObjects[previousIndex].Transform.localPosition +
-                (_pileObjects[previousIndex].ObjectData.ObjectSize + _pileObjects[index].ObjectData.ObjectSize) / 2 *
-                new Vector3(-temp.x, temp.y, -temp.z);
-        }
-        else return Vector3.zero;
-    }
-
-    private void HandleOnMovement(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        Vector2 input = obj.ReadValue<Vector2>();
-        _movementDirection = new Vector3(-input.y, 0, input.x);
     }
 
     public void AddToPile(PoolObjectData poolData)

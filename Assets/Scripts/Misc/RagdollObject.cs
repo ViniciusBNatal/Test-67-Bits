@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class RagdollObject : PoolingObject
 {
+    [SerializeField] private PoolObjectData _pileObjectToAdd;
+
     private Rigidbody[] _rigidbodies;
     private Collider[] _colliders;
-    [SerializeField] private PoolObjectData _pileObjectToAdd;
 
     protected override void OnDisable()
     {

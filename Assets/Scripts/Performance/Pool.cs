@@ -3,33 +3,33 @@ using UnityEngine;
 
 public class Pool<T> where T : PoolingObject
 {
-    private Queue<PoolingObject> m_Pool;
-    private PoolingObject m_Prefab;
+    private Queue<PoolingObject> _pool;
+    private PoolingObject _prefab;
 
     public Pool(PoolObjectData prefab)
     {
-        m_Pool = new Queue<PoolingObject>();
+        _pool = new Queue<PoolingObject>();
 
-        m_Prefab = prefab.PoolObject;
+        _prefab = prefab.PoolObject;
     }
 
     public T Get()
     {
         PoolingObject feedback;
-        if (m_Pool.Count > 0)
+        if (_pool.Count > 0)
         {
-            feedback = m_Pool.Dequeue();
+            feedback = _pool.Dequeue();
             feedback.gameObject.SetActive(true);
             return feedback as T;
         }
 
-        feedback = Object.Instantiate(m_Prefab);
+        feedback = Object.Instantiate(_prefab);
         feedback.OnFinished += ReturnToPool;
         return feedback as T;
     }
 
     private void ReturnToPool(PoolingObject obj)
     {
-        m_Pool.Enqueue(obj);
+        _pool.Enqueue(obj);
     }
 }

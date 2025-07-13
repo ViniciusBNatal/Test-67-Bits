@@ -5,6 +5,7 @@ public class SpawnPileObject : MonoBehaviour
     [SerializeField] private Vector3[] _spawnPositionOffsets;
     [SerializeField] private PoolObjectData[] _spawnDatas;
 #if UNITY_EDITOR
+    [Header("Debug")]
     [SerializeField] private Color _spawnPositionGizmoColor = Color.red;
 #endif
 
